@@ -14,7 +14,7 @@ function addFlight() {
         crew_count: document.getElementById('crewCount').value
     };
 
-    fetch("http://www.tellus.quest/api/add_flight", {
+    fetch("/api/add_flight", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -28,7 +28,7 @@ function addFlight() {
 function deleteFlight() {
     const flightId = document.getElementById('deleteFlightId').value;
 
-    fetch("http://www.tellus.quest/api/delete_flight/${flightId}", {
+    fetch("/api/delete_flight/${flightId}", {
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -38,7 +38,7 @@ function deleteFlight() {
 
 // Function to fetch and display all flights
 function fetchFlights() {
-    fetch("http://www.tellus.quest/api/fetch_flights")
+    fetch("/api/fetch_flights")
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
