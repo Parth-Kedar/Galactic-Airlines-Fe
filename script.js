@@ -28,7 +28,7 @@ function addFlight() {
 function deleteFlight() {
     const flightId = document.getElementById('deleteFlightId').value;
 
-    fetch("/api/delete_flight/${flightId}", {
+    fetch('/api/delete_flight/${flightId}', {
         method: 'DELETE'
     })
     .then(response => response.json())
